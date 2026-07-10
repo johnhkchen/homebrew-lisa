@@ -1,35 +1,35 @@
 class Lisa < Formula
   desc "CLI for Lisa DAG-driven concurrent task scheduling"
   homepage "https://github.com/johnhkchen/lisa"
-  version "0.3.0"
+  version "0.4.0-rc.3"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.3.0/lisa-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "b40834dd99d624b01c2c177948b679cdc5d29367254a4153e6032138158a7069"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.3/lisa-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "1af361bf5a3eac9de548b9d52390e62189df6320664b4af64b62757ba2eea963"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.3.0/lisa-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "74385a38fcd0f2095a7ca7146b608e43b2d630347672af60c040081f4e154ab7"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.3/lisa-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "d6f79f751f151960f62a15cabe64be72b64e60007adc269e976fe6646fb2859c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.3.0/lisa-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "304c5e6e35387ebed5adc292375886ce60a3bf5ad0dfe5a914c9c31c23a0b770"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.3/lisa-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "ea7558949b452e76d3f4f23b80e182d690f9db89ac2684076dc5f9d01cdf09f5"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.3.0/lisa-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "3c7aa8a69c0cbe8aaea0a384c9551ef800529640feb285865c0b96fcf959137f"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.3/lisa-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "e2c6238fa30184c4443f0d36bd2b45f4f9b8710a74fd5c87535062eef3437fcb"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,18 +47,10 @@ class Lisa < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "lisa"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "lisa"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "lisa"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "lisa"
-    end
+    bin.install "lisa" if OS.mac? && Hardware::CPU.arm?
+    bin.install "lisa" if OS.mac? && Hardware::CPU.intel?
+    bin.install "lisa" if OS.linux? && Hardware::CPU.arm?
+    bin.install "lisa" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
