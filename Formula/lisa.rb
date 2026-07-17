@@ -1,34 +1,38 @@
 class Lisa < Formula
   desc "CLI for Lisa DAG-driven concurrent task scheduling"
   homepage "https://github.com/johnhkchen/lisa"
-  version "0.4.0-rc.8"
+  version "0.4.3"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.8/lisa-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "cefb1d4dbbf7ddcec8b58fc38d7fe2d6def83debb91a09ad646478e885e14974"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.3/lisa-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "8087dd9b61b2f507b8f03e4dc5d8f8d56a0c451d834cb232cd49749c907e6ee3"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.8/lisa-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "daeb96a33e53c3f590d546b56165ca043c07182650ba01e4ee1642cad4119f35"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.3/lisa-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "4612ca27eecf9eaad0b50618cdbcf3f207aa463f04fb5e12323f411bee988254"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.8/lisa-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "d589b77f88527c9b070a6b526637f17fce2eb01024fed6f045e8221810320e0c"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.3/lisa-cli-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "30c6a3b1ad880e57dffc5b26f1710037caa1fbb041bca07e51936cf9bf3bab03"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.0-rc.8/lisa-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "45cf40709d30623786c5a660683a67ec75a3eb9164953d03fc4043c80c03dcc8"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.3/lisa-cli-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "0e68e56a005887d3425a92d649b3c0816f37886d05db5e27738f6e659dc89bec"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":      {},
-    "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
-    "x86_64-unknown-linux-gnu":  {},
+    "aarch64-apple-darwin":               {},
+    "aarch64-unknown-linux-gnu":          {},
+    "aarch64-unknown-linux-musl-dynamic": {},
+    "aarch64-unknown-linux-musl-static":  {},
+    "x86_64-apple-darwin":                {},
+    "x86_64-unknown-linux-gnu":           {},
+    "x86_64-unknown-linux-musl-dynamic":  {},
+    "x86_64-unknown-linux-musl-static":   {},
   }.freeze
 
   def target_triple
