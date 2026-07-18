@@ -1,25 +1,25 @@
 class Lisa < Formula
   desc "CLI for Lisa DAG-driven concurrent task scheduling"
   homepage "https://github.com/johnhkchen/lisa"
-  version "0.4.4-rc.7"
+  version "0.4.4-rc.8"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.7/lisa-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "d0bb17db6d6d58b96693824ab1439e78b7551facc32ad67cf33242d8b0a4d821"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.8/lisa-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "50fcfeb446fa78bff87a640d2a90b4990d94869282763fba61c9e4e8b27d1459"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.7/lisa-cli-x86_64-apple-darwin.tar.gz"
-      sha256 "2f54cd54dc8b0933149703a90ca82e5725d3b80ee3796fea8112256d28e5b1e9"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.8/lisa-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "4307fcb7f4572ed87a82c21905280416ba6fed35f42c213b1986c0daed78d218"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.7/lisa-cli-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "cc996d2e9ccaf18f2919c5deb066f1759376e2f22ca4ba59698d741c694c087a"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.8/lisa-cli-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "fbc3b37924e4140bb9ca42302051ec8b6bc1aebcc37b702b74271ce492d4c87a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.7/lisa-cli-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "9ce8d8d30d5c38c2fca4ce1805a7ca04cfafaabb8302f2029346bbc8a5d34412"
+      url "https://github.com/johnhkchen/lisa/releases/download/v0.4.4-rc.8/lisa-cli-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "9f132c9de62e01c45dadd6daa046dfd0929b9fca59036638d65bd2ed72e68427"
     end
   end
   license "MIT"
